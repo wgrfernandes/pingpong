@@ -44,9 +44,16 @@ const rightPaddle = {
   y: field.h / 2 + 200,
   w: line.w,
   h: 200,
-  directionY: 1,
+  speed: 5,
   _move: function () {
-    this.y = ball.y - this.h / 2;
+    if (this.y + this.h / 2 < ball.y - ball.r) {
+      this.y += this.speed;
+    } else {
+      this.y -= this.speed;
+    }
+  },
+  speedUp: function () {
+    this.speed += 2;
   },
   draw: function () {
     canvasCtx.fillStyle = "#ffffff";
