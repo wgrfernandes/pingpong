@@ -85,7 +85,7 @@ const ball = {
   x: 0,
   y: 0,
   r: 20,
-  speed: 30,
+  speed: 4,
   directionX: 1,
   directionY: 1,
   _calcPosition: function () {
@@ -132,7 +132,7 @@ const ball = {
     this.directionY *= -1;
   },
   _speedUp: function () {
-    if (this.speed < 100) {
+    if (this.speed < 40) {
       this.speed++;
     }
   },
