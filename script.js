@@ -46,11 +46,12 @@ const rightPaddle = {
   h: 200,
   speed: 5,
   _move: function () {
-    if (this.y + this.h / 2 < ball.y - ball.r) {
-      this.y += this.speed;
-    } else {
-      this.y -= this.speed;
-    }
+    this.y = ball.y - 100;
+    // if (this.y + this.h / 2 < ball.y - ball.r) {
+    //   this.y += this.speed;
+    // } else {
+    //   this.y -= this.speed;
+    // }
   },
   speedUp: function () {
     this.speed += 2;
