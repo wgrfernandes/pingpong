@@ -139,7 +139,7 @@ const ball = {
     this.directionX *= -1;
   },
   _reverseY: function () {
-    this.directionY *= -1 * Math.random();
+    this.directionY *= -1;
   },
   _speedUp: function () {
     if (this.speed < 40) {
