@@ -82,10 +82,10 @@ const score = {
 };
 
 const ball = {
-  x: 0,
-  y: 0,
+  x: field.w / 2,
+  y: field.h / 2,
   r: 20,
-  speed: 4,
+  speed: 10,
   directionX: 1,
   directionY: 1,
   _calcPosition: function () {
@@ -97,6 +97,11 @@ const ball = {
         this.y - this.r < rightPaddle.y + rightPaddle.h
       ) {
         this._reverseX();
+        if (this.directionY > 0) {
+          this.directionY = 1 + Math.random();
+        } else {
+          this.directionY = -1 + Math.random();
+        }
       } else {
         score.increaseHuman();
         this._pointUp();
@@ -110,8 +115,13 @@ const ball = {
       ) {
         //rebate a bola ao inverter o sinal de X
         this._reverseX();
+        if (this.directionY > 0) {
+          this.directionY = 1 + Math.random();
+        } else {
+          this.directionY = -1 + Math.random();
+        }
       } else {
-        //incrementa a portuação do jogador 1
+        //incrementa a portuação do jogador 2
         score.increaseComputer();
         this._pointUp();
       }
@@ -129,7 +139,7 @@ const ball = {
     this.directionX *= -1;
   },
   _reverseY: function () {
-    this.directionY *= -1;
+    this.directionY *= -1 * Math.random();
   },
   _speedUp: function () {
     if (this.speed < 40) {
@@ -137,9 +147,12 @@ const ball = {
     }
   },
   _pointUp: function () {
+    this.directionY = 1;
     this._speedUp();
+    this._reverseY();
     this.x = field.w / 2;
     this.y = field.h / 2;
+    this.directionY;
   },
   _move: function () {
     this.x += this.directionX * this.speed;
