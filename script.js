@@ -99,9 +99,9 @@ const ball = {
       ) {
         this._reverseX();
         if (this.directionY > 0) {
-          this.directionY = 1 + Math.random();
+          this.directionY = 1 + Math.random() * 0.5;
         } else {
-          this.directionY = -1 + Math.random();
+          this.directionY = -1 + Math.random() * 0.5;
         }
       } else {
         score.increaseHuman();
@@ -117,9 +117,9 @@ const ball = {
         //rebate a bola ao inverter o sinal de X
         this._reverseX();
         if (this.directionY > 0) {
-          this.directionY = 1 + Math.random();
+          this.directionY = 1 + Math.random() * 0.5;
         } else {
-          this.directionY = -1 + Math.random();
+          this.directionY = -1 + Math.random() * 0.5;
         }
       } else {
         //incrementa a portuação do jogador 2
@@ -148,12 +148,11 @@ const ball = {
     }
   },
   _pointUp: function () {
-    this.directionY = 1;
+    this.directionY = 0;
     this._speedUp();
     this._reverseY();
     this.x = field.w / 2;
     this.y = field.h / 2;
-    this.directionY;
   },
   _move: function () {
     this.x += this.directionX * this.speed;
